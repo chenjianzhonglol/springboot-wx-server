@@ -1,0 +1,30 @@
+# Server配置
+server:
+  port: 8090 # 服务端口默认为8080
+
+logging:
+  level:
+    org.springframework.web: INFO
+    com.github.binarywang.demo.wx.mp: DEBUG
+    me.chanjar.weixin: DEBUG
+wx:
+  mp:
+    use-redis: true
+    redisConfig:
+      host: 127.0.0.1
+      port: 6379
+      timeout: 2000
+    configs:
+      - appId: wx7af7db8a8919dc7d # 第一个公众号的appid
+        secret: 9b17cd71fb289dae4cb723f5e2ea13b8 # 公众号的appsecret
+        token: 123qwe!@# # 接口配置里的Token值
+        aesKey: 111 # 接口配置里的EncodingAESKey值
+      - appId: 2222 # 第二个公众号的appid，以下同上
+        secret: 1111
+        token: 111
+        aesKey: 111
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
